@@ -1,0 +1,1 @@
+[{"__type__":"cc.SceneAsset","_name":"Result","scene":{"__id__":1},"asyncLoadAssets":null},{"__type__":"cc.Scene","_name":"New Node","_children":[{"__id__":2}],"_anchorPoint":{"__type__":"cc.Vec2"},"autoReleaseAssets":false},{"__type__":"cc.Node","_name":"Canvas","_parent":{"__id__":1},"_components":[{"__type__":"cc.Canvas","node":{"__id__":2}}]}]

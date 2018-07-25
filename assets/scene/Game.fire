@@ -69,16 +69,19 @@
       },
       {
         "__id__": 60
+      },
+      {
+        "__id__": 67
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 67
+        "__id__": 69
       },
       {
-        "__id__": 68
+        "__id__": 70
       }
     ],
     "_prefab": null,
@@ -161,13 +164,13 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 750,
-      "height": 1334
+      "width": 707.5471698113207,
+      "height": 1258.4905660377358
     },
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
+    "_scaleX": 1.06,
+    "_scaleY": 1.06,
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -216,8 +219,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 750,
-      "height": 1334
+      "width": 707.5471698113207,
+      "height": 1258.4905660377358
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -323,8 +326,8 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 750,
-      "height": 1334
+      "width": 707.5471698113207,
+      "height": 1258.4905660377358
     },
     "_resize": 0,
     "_N$layoutType": 0,
@@ -351,7 +354,7 @@
     "node": {
       "__id__": 3
     },
-    "_enabled": false,
+    "_enabled": true,
     "isAlignOnce": true,
     "_target": null,
     "_alignFlags": 45,
@@ -753,7 +756,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 630,
-      "height": 60
+      "height": 120
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -762,7 +765,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 432
+      "y": 402
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -787,11 +790,11 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "感冒忌用下列哪一种食物?",
+    "_N$string": "感冒忌用下列哪一种食物?感冒忌用下列哪一种食物?",
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 3
+    "_N$overflow": 2
   },
   {
     "__type__": "cc.Widget",
@@ -872,7 +875,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 710,
-      "height": 884
+      "height": 844
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -881,7 +884,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": -100
+      "y": -120
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -943,7 +946,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 382
+      "y": 362
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1237,7 +1240,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 262
+      "y": 242
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1531,7 +1534,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 142
+      "y": 122
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1825,7 +1828,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 22
+      "y": 2
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2101,7 +2104,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 710,
-      "height": 884
+      "height": 844
     },
     "_resize": 0,
     "_N$layoutType": 2,
@@ -2134,7 +2137,7 @@
     "_alignFlags": 45,
     "_left": 0,
     "_right": 0,
-    "_top": 200,
+    "_top": 240,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -2474,6 +2477,80 @@
     "_originalHeight": 0
   },
   {
+    "__type__": "cc.Node",
+    "_name": "mark",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 2
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": false,
+    "_components": [
+      {
+        "__id__": 68
+      }
+    ],
+    "_prefab": null,
+    "_id": "d3ZEiW6ytG+L+u2FHtR7wi",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 124,
+      "height": 40
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 404
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 67
+    },
+    "_enabled": true,
+    "_useOriginalSize": false,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
+    "_lineHeight": 40,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_N$string": "第 1 题",
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0
+  },
+  {
     "__type__": "cc.Canvas",
     "_name": "",
     "_objFlags": 0,
@@ -2486,7 +2563,7 @@
       "width": 750,
       "height": 1334
     },
-    "_fitWidth": true,
+    "_fitWidth": false,
     "_fitHeight": true
   },
   {
@@ -2497,6 +2574,9 @@
       "__id__": 2
     },
     "_enabled": true,
+    "mark": {
+      "__id__": 67
+    },
     "qaNode": {
       "__id__": 18
     },

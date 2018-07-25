@@ -5,6 +5,9 @@ const { ccclass, property } = cc._decorator;
 export default class Game extends cc.Component {
 
     @property(cc.Node)
+    mark: cc.Node = null; // 第 ？题 
+
+    @property(cc.Node)
     qaNode: cc.Node = null;
 
     @property(cc.Node)
@@ -33,6 +36,8 @@ export default class Game extends cc.Component {
 
     current: number = 0;  // 当前小题
 
+    inProgress: boolean = false; // 是否在进行中 (小题)
+
 
     onLoad() {
         this.init();
@@ -50,10 +55,13 @@ export default class Game extends cc.Component {
         this.readyCountdown = this.readyCountdownNode.getComponent(cc.Label);
         // init qa node
         this.qaNode.active = false;
+        this.qaNode.opacity = 0;
         // init btnStart
         this.btnStart.active = true;
         // init current
         this.current = 0;
+        // init mark
+        this.mark.active = false;
     }
 
     ready(): void {
@@ -105,25 +113,39 @@ export default class Game extends cc.Component {
     }
 
     starRound(): void {
-        console.log(this.current, qdata.length)
         if (this.current >= qdata.length) {
             this.init();
             // unbind scedule
             this.unschedule(this.updateCountdownTime);
             return;
         }
-        this.qaNode.getComponent('Qa').initQa(qdata[this.current]);
-        this.progressBar.progress = 1;
-        this.schedule(this.updateCountdownTime, 1);
-        // console.log(qdata[this.current]);
-        this.current += 1;
+
+        this.mark.active = true;
+        this.mark.getComponent(cc.Label).string = `第 ${this.current + 1} 题`
+        this.mark.runAction(cc.sequence(cc.scaleTo(.2, 1.2), cc.scaleTo(.2, 1), cc.callFunc(() => {
+            this.scheduleOnce(() => {
+                this.mark.active = false;
+                // realy start
+                this.qaNode.runAction(cc.fadeIn(.2));
+                this.inProgress = true; // 回合开始
+                this.qaNode.getComponent('Qa').initQa(qdata[this.current]);
+                this.progressBar.progress = 1;
+                this.schedule(this.updateCountdownTime, 1);
+                this.current += 1;
+            }, 1);
+        })))
     }
 
     endRound(): void {
         this.currentTime = 0;
-        this.scheduleOnce(() => {
-            this.starRound();
-        }, 1);
+        this.inProgress = false;
+        const actionOut = cc.sequence(cc.fadeOut(.2), cc.callFunc(() => {
+            this.qaNode.getComponent('Qa').resetStatus();
+            this.scheduleOnce(() => {
+                this.starRound();
+            }, .5)
+        }))
+        this.qaNode.runAction(actionOut);
     }
 
     stopSchedule(): void {

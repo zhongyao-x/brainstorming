@@ -25,7 +25,8 @@ export default class Qa extends cc.Component {
 
     btnAnswerNodeArray: Array<cc.Node> = new Array<cc.Node>();
 
-    currentNode: cc.Node = null;
+    currentNode: cc.Node = null; // 选择答案的节点
+    rightNode: cc.Node = null; // 正确答案的节点
 
     right: number; // 正确答案的id
     answer: number; // 选择的id
@@ -41,7 +42,7 @@ export default class Qa extends cc.Component {
     }
 
     answerClick(event, option): void {
-        if (!this.isAnswer) {
+        if (!this.isAnswer && this.game.getComponent('Game').inProgress) {
             this.isAnswer = true;
             this.currentNode = this.btnAnswerNodeArray[option];
             // judge
@@ -66,6 +67,7 @@ export default class Qa extends cc.Component {
         this.getChildrenLabel(this.btnAnswerNode_4).string = `D.${D.txt}`;
         // init right
         this.right = question.answer.findIndex(item => item.id === question.right);
+        this.rightNode = this.btnAnswerNodeArray[this.right];
     }
 
     correct(): void {
@@ -83,7 +85,15 @@ export default class Qa extends cc.Component {
     animStart(): void {
         const seqAction = cc.sequence(cc.scaleTo(.2, 1.1), cc.callFunc(this.animOver, this));
         this.currentNode.runAction(seqAction);
+        const isRight = this.right === this.answer;
+        this.currentNode.getChildByName('Label').color = cc.Color.WHITE;
         this.btnAnswerNodeArray.forEach(node => {
+            if (!isRight && this.rightNode === node) {
+                // 答错了把正确答案也展示给用户
+                node.color = new cc.Color(88, 165, 92);
+                node.getChildByName('Label').color = cc.Color.WHITE;
+                return;
+            }
             if (this.currentNode !== node) {
                 node.runAction(cc.scaleTo(.2, 0));
             }
@@ -93,15 +103,28 @@ export default class Qa extends cc.Component {
     animOver(): void {
         this.game.getComponent('Game').stopSchedule();
         this.scheduleOnce(() => {
+            this.game.getComponent('Game').endRound();
+        }, 1)
+    }
+
+    resetStatus(): void {
+        if (this.currentNode) {
+            // 将正确答案缩放重置
             this.currentNode.runAction(cc.scaleTo(.2, 1));
+            // 将错误答案和正确答案背景颜色重置
             this.currentNode.color = cc.Color.WHITE;
+            this.rightNode.color = cc.Color.WHITE;
+            // 将lable颜色重置
+            this.rightNode.getChildByName('Label').color = cc.Color.BLACK;
+            this.currentNode.getChildByName('Label').color = cc.Color.BLACK;
+
             this.btnAnswerNodeArray.forEach(node => {
                 if (this.currentNode !== node) {
                     node.runAction(cc.scaleTo(.2, 1));
                 }
             })
-            this.game.getComponent('Game').endRound();
-        }, 1)
+            this.currentNode = null;
+        }
     }
 
     getChildrenLabel(node: cc.Node): cc.Label {

@@ -69,18 +69,25 @@ export default class Qa extends cc.Component {
     }
 
     correct(): void {
-        // this.currentNode
+        this.animStart();
         cc.audioEngine.play(this.successAudio as any, false, 1);
-        const seqAction = cc.sequence(cc.scaleTo(.2, 1.1), cc.callFunc(this.animOver, this));
-        this.currentNode.runAction(seqAction);
         this.currentNode.color = new cc.Color(88, 165, 92);
     }
 
     wrong(): void {
+        this.animStart();
         cc.audioEngine.play(this.faildAudio as any, false, 1);
+        this.currentNode.color = new cc.Color(217, 80, 84);
+    }
+
+    animStart(): void {
         const seqAction = cc.sequence(cc.scaleTo(.2, 1.1), cc.callFunc(this.animOver, this));
         this.currentNode.runAction(seqAction);
-        this.currentNode.color = new cc.Color(217, 80, 84);
+        this.btnAnswerNodeArray.forEach(node => {
+            if (this.currentNode !== node) {
+                node.runAction(cc.scaleTo(.2, 0));
+            }
+        })
     }
 
     animOver(): void {
@@ -88,6 +95,11 @@ export default class Qa extends cc.Component {
         this.scheduleOnce(() => {
             this.currentNode.runAction(cc.scaleTo(.2, 1));
             this.currentNode.color = cc.Color.WHITE;
+            this.btnAnswerNodeArray.forEach(node => {
+                if (this.currentNode !== node) {
+                    node.runAction(cc.scaleTo(.2, 1));
+                }
+            })
             this.game.getComponent('Game').endRound();
         }, 1)
     }

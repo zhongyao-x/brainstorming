@@ -521,7 +521,7 @@
     "_spriteFrame": {
       "__uuid__": "bf36ac11-05f1-4934-a968-9becd29cfbbc"
     },
-    "_type": 1,
+    "_type": 0,
     "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
@@ -530,7 +530,7 @@
       "y": 0
     },
     "_fillStart": 0,
-    "_fillRange": 0,
+    "_fillRange": 1,
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
@@ -753,7 +753,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 630,
-      "height": 120
+      "height": 60
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -787,7 +787,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "感冒忌用下列哪一种食物?感冒忌用下列哪一种食物?",
+    "_N$string": "感冒忌用下列哪一种食物?",
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -806,7 +806,7 @@
     "_alignFlags": 41,
     "_left": 40,
     "_right": 40,
-    "_top": 50,
+    "_top": 80,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -2219,7 +2219,7 @@
       }
     ],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 63

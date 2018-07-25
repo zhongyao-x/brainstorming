@@ -1,4 +1,4 @@
-import qdata from './mock';
+import data from './mock';
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -28,6 +28,9 @@ export default class Game extends cc.Component {
     @property(cc.Integer)
     countdownTime: number = 0; // 小题 答题倒计时(s)
 
+    @property(cc.Integer)
+    questionTotal: number = 0; // 题目数量
+
     progressBar: cc.ProgressBar = null;
     readyCountdown: cc.Label = null;
 
@@ -38,12 +41,57 @@ export default class Game extends cc.Component {
 
     inProgress: boolean = false; // 是否在进行中 (小题)
 
+    qdata: Array<any> = null;
 
     onLoad() {
         this.init();
-        console.log(qdata);
+        var oReq = new XMLHttpRequest();
+        oReq.onload = () => {
+            const res = JSON.parse(oReq.responseText);
+            if (res.status == 0) {
+                this.qdata = new Array<any>();
+                res.result.list.every((item, i) => {
+                    if ((item.answer === 'A' || item.answer === 'B' || item.answer === 'C' || item.answer === 'D') && !item.pic) {
+                        // if (item.pic) {
+                        let q = {
+                            id: i,
+                            title: item.question,
+                            right: item.answer,
+                            pic: item.pic,
+                            answer: [
+                                {
+                                    id: 'A',
+                                    txt: item.option1
+                                },
+                                {
+                                    id: 'B',
+                                    txt: item.option2
+                                },
+                                {
+                                    id: 'C',
+                                    txt: item.option3
+                                },
+                                {
+                                    id: 'D',
+                                    txt: item.option4
+                                },
+                            ]
+                        };
+                        this.qdata.push(q);
+                        if (this.qdata.length >= this.questionTotal) {
+                            return false;
+                        }
+                    }
+                    return true;
+                });
+                console.log(this.qdata);
+            }
+        };
+        // https://jisujiakao.market.alicloudapi.com
+        oReq.open('get', 'https://jisujiakao.market.alicloudapi.com/driverexam/query?pagenum=1&pagesize=100&sort=rand&subject=1&type=C1', true);
+        oReq.setRequestHeader('Authorization', 'APPCODE d1f7d1f2048841eca46b1a56a941554b');
+        console.log(oReq.send());
     }
-
 
     init(): void {
         // init progressBar
@@ -113,10 +161,11 @@ export default class Game extends cc.Component {
     }
 
     starRound(): void {
-        if (this.current >= qdata.length) {
+        if (this.current >= this.qdata.length) {
+            // cc.director.loadScene("Result");
             this.init();
-            // unbind scedule
             this.unschedule(this.updateCountdownTime);
+            // unbind scedule
             return;
         }
 
@@ -128,7 +177,7 @@ export default class Game extends cc.Component {
                 // realy start
                 this.qaNode.runAction(cc.fadeIn(.2));
                 this.inProgress = true; // 回合开始
-                this.qaNode.getComponent('Qa').initQa(qdata[this.current]);
+                this.qaNode.getComponent('Qa').initQa(this.qdata[this.current]);
                 this.progressBar.progress = 1;
                 this.schedule(this.updateCountdownTime, 1);
                 this.current += 1;

@@ -61,13 +61,18 @@ export default class Qa extends cc.Component {
         // init q & a
         this.questionNode.getComponent(cc.Label).string = question.title;
         const [A, B, C, D] = question.answer;
-        this.getChildrenLabel(this.btnAnswerNode_1).string = `A.${A.txt}`;
-        this.getChildrenLabel(this.btnAnswerNode_2).string = `B.${B.txt}`;
-        this.getChildrenLabel(this.btnAnswerNode_3).string = `C.${C.txt}`;
-        this.getChildrenLabel(this.btnAnswerNode_4).string = `D.${D.txt}`;
+        this.getChildrenLabel(this.btnAnswerNode_1).string = `${A.txt}`; // A.
+        this.getChildrenLabel(this.btnAnswerNode_2).string = `${B.txt}`; // B.
+        this.getChildrenLabel(this.btnAnswerNode_3).string = `${C.txt}`; // C.
+        this.getChildrenLabel(this.btnAnswerNode_4).string = `${D.txt}`; // D.
         // init right
         this.right = question.answer.findIndex(item => item.id === question.right);
         this.rightNode = this.btnAnswerNodeArray[this.right];
+        // init pic
+        // if (question.pic) {
+        //     this.picNode.active = true;
+        //     this.picNode.getComponent(cc.WebView).url = question.pic;
+        // }
     }
 
     correct(): void {

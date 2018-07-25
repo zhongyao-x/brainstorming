@@ -71,17 +71,17 @@
         "__id__": 60
       },
       {
-        "__id__": 67
+        "__id__": 68
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 69
+        "__id__": 70
       },
       {
-        "__id__": 70
+        "__id__": 71
       }
     ],
     "_prefab": null,
@@ -426,7 +426,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 587
+      "y": 529
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -568,7 +568,7 @@
     "_alignFlags": 1,
     "_left": 0,
     "_right": 0,
-    "_top": 60,
+    "_top": 118,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -673,7 +673,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 58
@@ -2225,13 +2225,13 @@
     "_active": false,
     "_components": [
       {
-        "__id__": 63
-      },
-      {
         "__id__": 64
       },
       {
-        "__id__": 66
+        "__id__": 65
+      },
+      {
+        "__id__": 67
       }
     ],
     "_prefab": null,
@@ -2252,7 +2252,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 200,
+      "width": 300,
       "height": 80
     },
     "_rotationX": 0,
@@ -2262,7 +2262,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": -327
+      "y": 25
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2284,6 +2284,9 @@
     "_components": [
       {
         "__id__": 62
+      },
+      {
+        "__id__": 63
       }
     ],
     "_prefab": null,
@@ -2304,7 +2307,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
+      "width": 200,
       "height": 40
     },
     "_rotationX": 0,
@@ -2336,16 +2339,40 @@
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": false,
-    "_N$file": {
-      "__uuid__": "b7286687-a863-4d94-9e75-8c940716fec3"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "Start",
+    "_N$string": "随机练习",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 1
+    "_N$overflow": 2
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 61
+    },
+    "_enabled": true,
+    "isAlignOnce": true,
+    "_target": null,
+    "_alignFlags": 40,
+    "_left": 50,
+    "_right": 50,
+    "_top": 0,
+    "_bottom": 0,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 100,
+    "_originalHeight": 0
   },
   {
     "__type__": "cc.Sprite",
@@ -2400,7 +2427,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 65
+        "__id__": 66
       }
     ],
     "_N$interactable": true,
@@ -2464,7 +2491,7 @@
     "_left": 0,
     "_right": 0,
     "_top": 0,
-    "_bottom": 300,
+    "_bottom": 652,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
     "_isAbsLeft": true,
@@ -2488,7 +2515,7 @@
     "_active": false,
     "_components": [
       {
-        "__id__": 68
+        "__id__": 69
       }
     ],
     "_prefab": null,
@@ -2533,7 +2560,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 67
+      "__id__": 68
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -2575,7 +2602,7 @@
     },
     "_enabled": true,
     "mark": {
-      "__id__": 67
+      "__id__": 68
     },
     "qaNode": {
       "__id__": 18
@@ -2595,6 +2622,7 @@
     "countdownAudio_2": {
       "__uuid__": "998cb273-67bb-4491-bdd5-a4ef868f5166"
     },
-    "countdownTime": 10
+    "countdownTime": 15,
+    "questionTotal": 10
   }
 ]

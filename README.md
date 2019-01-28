@@ -3,7 +3,7 @@ cocos creator 答题小游戏
 
 学习 + 练习
 
-试玩地址 https://xuzhongyao.github.io/brainstorming/build/web-mobile/
+试玩地址 https://xuzhongyao.github.io/geekgray/build/web-mobile/
 
 
 # Cocos2d-JS
